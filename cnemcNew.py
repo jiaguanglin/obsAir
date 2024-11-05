@@ -42,22 +42,19 @@ if __name__ == "__main__":
     if len(df['timepoint'].unique()) > 1:
         for t in range(len(df['timepoint'].unique())):
             timestamp = df['timepoint'].unique()[t][:13]
-            daily_folder = Path('Error')/timestamp[:10]
+            daily_folder = Path('error')/timestamp[:10]
             daily_folder.mkdir(parents=True, exist_ok=True)
             df.to_csv(daily_folder/(timestamp+'.csv'), index=None)
 
     # 将数据处理下再输出
-    df_ = df[['timepoint', 'stationcode', 'longitude', 'latitude',
-              'area', 'positionname', 'primarypollutant', 'aqi',
-              'pm10', 'pm10_24h', 'pm2_5', 'pm2_5_24h',
-              'o3', 'o3_24h', 'o3_8h', 'o3_8h_24h',
-              'no2', 'no2_24h', 'so2', 'so2_24h',
-              'co', 'co_24h']]
-    df_ = df_.where(df != '—', np.nan)
+    df_ = df[['stationcode', 'timepoint', 'longitude', 'latitude', 'pm2_5',
+              'pm10', 'co', 'no2', 'so2', 'o3', 'o3_8h', 'aqi',
+              'primarypollutant', 'positionname', 'area']]
+    #df_ = df_.where(df != '—', np.nan)
 
     # 将每小时数据保存为 csv 文件
     timestamp = df['timepoint'].unique()[-1][:13]
-    # daily_folder = Path('Archive')/timestamp[:10]
+    #daily_folder = Path('Archive')/timestamp[:10]
     daily_folder = Path('Archive')
     daily_folder.mkdir(parents=True, exist_ok=True)
     # 如果已经有过该文件只需要追加此刻获取的即可
