@@ -47,9 +47,9 @@ if __name__ == "__main__":
             df.to_csv(daily_folder/(timestamp+'.csv'), index=None)
 
     # 将数据处理下再输出
-    df_ = df[['stationcode', 'timepoint', 'longitude', 'latitude', 'pm2_5',
+    df_ = df[['area', 'positionname', 'stationcode', 'timepoint', 'longitude', 'latitude', 'pm2_5',
               'pm10', 'co', 'no2', 'so2', 'o3', 'o3_8h', 'aqi',
-              'primarypollutant', 'positionname', 'area']]
+              'primarypollutant']]
     #df_ = df_.where(df != '—', np.nan)
 
     # 将每小时数据保存为 csv 文件
