@@ -1,7 +1,9 @@
 name: Python Package
 
 on:
-#   push:
+  push:
+    branches:
+    - master
   workflow_dispatch:
   schedule:
     - cron: '40 * * * *'
@@ -29,3 +31,5 @@ jobs:
         git config --global user.name githubBOT
         git add .
         git commit -m "update" -a
+    - name: push
+      uses: actions-x/commit@v6
