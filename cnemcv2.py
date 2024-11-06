@@ -47,14 +47,13 @@ if __name__ == "__main__":
             df.to_csv(daily_folder/(timestamp+'.csv'), index=None)
 
     # 将数据处理下再输出
-    df_ = df[['area', 'positionname', 'stationcode', 'timepoint', 'longitude', 'latitude', 'pm2_5',
+    df_ = df[['area', 'positionname', 'timepoint', 'longitude', 'latitude', 'pm2_5',
               'pm10', 'co', 'no2', 'so2', 'o3', 'o3_8h', 'aqi',
               'primarypollutant']]
-    #df_ = df_.where(df != '—', np.nan)
+    df_ = df_.where(df != '—', np.nan)
 
     # 将每小时数据保存为 csv 文件
     timestamp = df['timepoint'].unique()[-1][:13]
-    #daily_folder = Path('archives')/timestamp[:10]
     daily_folder = Path('archives')
     daily_folder.mkdir(parents=True, exist_ok=True)
     # 如果已经有过该文件只需要追加此刻获取的即可
