@@ -47,7 +47,7 @@ if __name__ == "__main__":
             df.to_csv(daily_folder/(timestamp+'.csv'), index=None)
 
     # 将数据处理下再输出
-    df_ = df[['area', 'positionname', 'timepoint', 'longitude', 'latitude', 'pm2_5',
+    df_ = df[['area', 'positionname', 'longitude', 'latitude', 'timepoint', 'pm2_5',
               'pm10', 'co', 'no2', 'so2', 'o3', 'o3_8h', 'aqi',
               'primarypollutant']]
     df_ = df_.where(df != '—', np.nan)
