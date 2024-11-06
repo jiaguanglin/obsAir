@@ -24,7 +24,7 @@ jobs:
         pip install requests numpy pandas
     - name: Run Python
       run: |
-        python ctyshr.py
+        python cnemcv2.py
     - name: Commit changes
       run: |
         git config --global user.email BOT@github.com
