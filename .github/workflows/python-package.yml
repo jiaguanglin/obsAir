@@ -31,5 +31,3 @@ jobs:
         git config --global user.name githubBOT
         git add .
         git commit -m "update" -a
-    - name: push
-      uses: actions-x/commit@v6
