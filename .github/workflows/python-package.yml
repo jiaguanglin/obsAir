@@ -25,6 +25,9 @@ jobs:
     - name: Run Python
       run: |
         python cnemcv2.py
+    - name: Run Python 2
+      run: |
+        python cityhr.py
     - name: Commit changes
       run: |
         git config --global user.email BOT@github.com
