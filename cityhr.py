@@ -66,7 +66,7 @@ if __name__ == "__main__":
         # 将每小时数据保存为 csv 文件
         timestamp = df['timepoint'].unique()[-1][:13]
         # daily_folder = Path('Archive')/timestamp[:10]
-        daily_folder = Path('output/city_hourly')
+        daily_folder = Path('archives/city')
         daily_folder.mkdir(parents=True, exist_ok=True)
         # 如果已经有过该文件只需要追加此刻获取的即可
         if (daily_folder/(timestamp+'.csv')).exists():
